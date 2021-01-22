@@ -7,7 +7,7 @@ from IslandPy.Scenes.AScene import AScene
 
 class Obstacle(ARenderObject):
 
-    speed = 6
+    speed = 8
 
     def __init__(self, scene: AScene, size: Tuple[int, int] = (0, 0)):
         super().__init__(scene, size)
@@ -24,9 +24,6 @@ class Obstacle(ARenderObject):
     def update(self, dt) -> None:
         if self.is_started:
             self.rect.x -= Obstacle.speed
-            if self.rect.right <= 0:
-                self.change_image()
-                self.rect.x = pygame.display.get_window_size()[0] + self.rect.w * random.randint(1, 3)
 
     def change_image(self) -> None:
         b = self.rect.bottom
